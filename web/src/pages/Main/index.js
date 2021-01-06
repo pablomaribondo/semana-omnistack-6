@@ -4,7 +4,8 @@ import api from "../../services/api";
 import logo from "../../assets/logo.png";
 import "./styles.css";
 
-const Main = () => {
+const Main = props => {
+  const { history } = props;
   const [newBox, setNewBox] = useState("");
 
   const handleInputChange = event => {
@@ -18,7 +19,7 @@ const Main = () => {
       title: newBox,
     });
 
-    console.log(response.data);
+    history.push(`/box/${response.data._id}`);
   };
 
   return (
