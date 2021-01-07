@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { formatDistanceToNow, parseJSON } from "date-fns";
 import { MdInsertDriveFile } from "react-icons/md";
+import socket from "socket.io-client";
 import Dropzone from "react-dropzone";
 import pt from "date-fns/locale/pt";
 
@@ -15,11 +16,13 @@ const Box = props => {
 
   useEffect(() => {
     (async () => {
-      console.log("load");
+      subscribeToNewFiles();
+
       const response = await api.get(`boxes/${id}`);
+
       setBox(response.data);
     })();
-  }, [id]);
+  }, []);
 
   const handleUpload = files => {
     files.forEach(file => {
@@ -28,6 +31,16 @@ const Box = props => {
       data.append("file", file);
 
       api.post(`boxes/${id}/files`, data);
+    });
+  };
+
+  const subscribeToNewFiles = () => {
+    const io = socket("http://localhost:3333");
+
+    io.emit("connectRoom", id);
+
+    io.on("file", data => {
+      setBox(boxState => ({ ...boxState, files: [data, ...boxState.files] }));
     });
   };
 
