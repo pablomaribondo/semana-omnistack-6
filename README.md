@@ -30,7 +30,7 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
 ---
 
 <kbd>
-  <img src=".github/screenshot-box-web.png" alt="web box" width="400" />
+  <img src=".github/screenshot-box-web.png" alt="web box" width="500" />
 </kbd>
 
 [rocketseat]: https://rocketseat.com.br/
