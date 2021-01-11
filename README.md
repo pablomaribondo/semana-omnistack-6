@@ -21,6 +21,18 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
 
 ## 📷 Screenshots
 
+### Mobile:
+
+<kbd>
+  <img src=".github/screenshot-new-mobile.png" alt="mobile new" width="300" />
+</kbd>
+
+---
+
+<kbd>
+  <img src=".github/screenshot-box-mobile.png" alt="mobile box" width="300" />
+</kbd>
+
 ### Web:
 
 <kbd>
